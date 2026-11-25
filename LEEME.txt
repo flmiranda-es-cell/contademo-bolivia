@@ -1,0 +1,24 @@
+CONTademo — sistema académico con sincronización Supabase
+
+QUÉ HACE
+Contabilidad local en navegador con inicio de sesión Supabase, roles admin/contador/consulta, almacenamiento compartido en Supabase y actualización en tiempo real. El administrador y el contador pueden editar. Consulta solo ve informes.
+
+ANTES DE COMPARTIR
+1. Crea un proyecto gratis en supabase.com.
+2. Abre SQL Editor, copia y ejecuta todo el archivo supabase-setup.sql.
+3. En Authentication > Users, crea el usuario administrador y el usuario del compañero con sus correos y contraseñas. No actives registros públicos.
+4. En el SQL Editor, usa las dos instrucciones comentadas al final de supabase-setup.sql: sustituye los correos y nombres y ejecuta una vez cada instrucción. Asigna admin a quien administra el proyecto y contador al compañero. Para lectura, usa el rol consulta.
+5. En Project Settings > API, copia Project URL y Publishable key. Abre supabase-config.js y pégalos en url y publishableKey. No uses ni compartas Secret key / service_role.
+6. Publica los archivos index.html, app.js, estilos.css, supabase-config.js y LEEME.txt en un sitio estático por HTTPS. GitHub Pages es una opción gratuita; el repositorio del código debe ser público con GitHub Free. La clave publishable queda visible en el navegador, así que la protección depende de las políticas RLS ya incluidas en el SQL.
+7. Abre el sitio publicado en dos computadoras e inicia sesión con cada usuario. Los cambios aparecen automáticamente en la otra sesión.
+
+IMPORTANTE SOBRE LA PRIMERA CONEXIÓN
+El primer inicio de sesión debe hacerlo el usuario con rol admin; eso crea la empresa compartida y el plan de cuentas inicial. Después entra el compañero. Todos los usuarios del mismo proyecto Supabase comparten una empresa. No conectes el proyecto a datos reales.
+
+CONFLICTOS DE EDICIÓN
+La aplicación protege la revisión de la base de datos. Si dos personas guardan cambios exactamente al mismo tiempo, se conserva la versión compartida y se descarga una copia JSON de la edición en conflicto para recuperarla manualmente. Para el uso normal, esperen a que aparezca “En línea · sincronizado” antes de la siguiente edición.
+
+FUNCIONES CONTABLES
+Plan de cuentas, periodos, comprobantes de partida doble, compras y ventas manuales con IVA parametrizado, IT, cálculo y asiento de IUE y reserva legal, libro de retenciones, empleados y planillas, libro diario, mayor, sumas y saldos, resultados, balance general, flujo de efectivo, evolución patrimonial, CSV, impresión/PDF y bitácora.
+
+Este prototipo universitario no emite facturas electrónicas, no genera archivos oficiales de SIAT/SIN y no presenta declaraciones. Tasas y reglas son editables; verifica las marcadas como pendientes con fuentes oficiales. La base gratuita de Supabase puede pausarse después de una semana sin actividad. La aplicación requiere internet para iniciar sesión y sincronizar.
